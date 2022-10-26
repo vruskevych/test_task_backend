@@ -37,10 +37,10 @@ class PaymeApiService
      */
     public function buildGenerateSaleRequest(string $product, int $cost, string $currency):Request
     {
-        $api_url = static::SCHEMA . '://' . static::DOMAIN . static::GENERATE_SALE_PATH;
+        $apiUrl = static::SCHEMA . '://' . static::DOMAIN . static::GENERATE_SALE_PATH;
         return new Request(
             static::REQUEST_METHOD_POST,
-            $api_url,
+            $apiUrl,
             $this->getJsonHeaders(),
             json_encode($this->buildGenerateSaleRequestBody($product, $cost, $currency))
         );

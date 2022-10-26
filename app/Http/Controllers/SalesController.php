@@ -23,7 +23,7 @@ class SalesController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request, Sales $sales_model): JsonResponse
+    public function store(Request $request, Sales $salesModel): JsonResponse
     {
         $product    = $request->input('product');
         $cost       = $request->input('cost');
@@ -41,7 +41,7 @@ class SalesController extends Controller
         $parsedApiResponse = json_decode($apiResponse->getContents());
 
         if($parsedApiResponse->status_code === 0) {
-            $sales_model->create(
+            $salesModel->create(
                 $product,
                 $cost,
                 $currency,

@@ -22,26 +22,26 @@ class Sales extends Model
      * @param string $product
      * @param int    $cost
      * @param string $currency
-     * @param int    $sale_id
-     * @param string $sale_url
+     * @param int    $saleId
+     * @param string $saleUrl
      *
      * @return void
      */
     public function create(
         string $product,
-        int $cost,
+        int    $cost,
         string $currency,
-        int $sale_id,
-        string $sale_url
+        int    $saleId,
+        string $saleUrl
     ): void
     {
         static::query()->insert(
             [
-                "sale_id" => $sale_id,
+                "sale_id" => $saleId,
                 "product" => $product,
                 "cost" => $cost,
                 "currency" => $currency,
-                "sale_url" => $sale_url,
+                "sale_url" => $saleUrl,
                 "created_at" => Carbon::now(),
             ]
         );
