@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get("/", function () {
+    return view("welcome");
 });
 
-Route::apiResource('sales', \App\Http\Controllers\SalesController::class)
-->only(['index', 'store']);
+Route::apiResource("sales", \App\Http\Controllers\SalesController::class)
+->only(["index", "store"]);

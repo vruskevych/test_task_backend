@@ -29,28 +29,28 @@ class SalesController extends Controller
         $cost       = $request->input('cost');
         $currency   = $request->input('currency');
 
-        $api_service = new \App\Services\PaymeApiService();
-        $api_response = $api_service->requestApi(
-            $api_service->buildGenerateSaleRequest(
+        $apiService = new \App\Services\PaymeApiService();
+        $apiResponse = $apiService->requestApi(
+            $apiService->buildGenerateSaleRequest(
                 $product,
                 $cost,
                 $currency
             )
         );
 
-        $parsed_api_response = json_decode($api_response->getContents());
+        $parsedApiResponse = json_decode($apiResponse->getContents());
 
-        if($parsed_api_response->status_code === 0) {
+        if($parsedApiResponse->status_code === 0) {
             $sales_model->create(
                 $product,
                 $cost,
                 $currency,
-                $parsed_api_response->payme_sale_code,
-                $parsed_api_response->sale_url
+                $parsedApiResponse->payme_sale_code,
+                $parsedApiResponse->sale_url
             );
         }
 
-        return response()->json($parsed_api_response);
+        return response()->json($parsedApiResponse);
     }
 
     /**

@@ -18,9 +18,9 @@ class AllowOriginAll
     {
 
         $response = $next($request);
-        $response->header('Access-Control-Allow-Origin', '*');
-        $response->header('Content-Type', 'application/json');
-        $response->header('Access-Control-Allow-Headers', 'content-type');
+        $response->header("Access-Control-Allow-Origin", "*");
+        $response->header("Content-Type", "application/json");
+        $response->header("Access-Control-Allow-Headers", "content-type");
         return $response;
     }
 }

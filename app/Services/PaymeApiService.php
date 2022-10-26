@@ -52,8 +52,8 @@ class PaymeApiService
     public function getJsonHeaders(): array
     {
         return [
-            'Content-Type' => 'application/json',
-            'Accept' => 'application/json',
+            "Content-Type" => "application/json",
+            "Accept" => "application/json",
         ];
     }
 
@@ -87,6 +87,7 @@ class PaymeApiService
     {
         $client = new \GuzzleHttp\Client();
         $response = $client->send($request, $options);
+
         return $response->getBody();
     }
 }
